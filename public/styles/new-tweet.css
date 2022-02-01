@@ -1,6 +1,24 @@
+.new-tweet div{
+  display: flex;
+  justify-content: space-between;
+}
+
 .new-tweet button {
   background-color: #4056A1;
   border: none;
   color: #FFFFFF;
   font-family: 'Bungee', cursive;
+}
+
+.counter {
+  font-family: 'Bungee', cursive;
+}
+
+#tweet-text {
+  border: none;
+  background-color: #f4f1ec;
+  border-bottom: solid 5px #545149;
+  resize: none;
+  height: 1.5em;
+  width: 100%;
 }
