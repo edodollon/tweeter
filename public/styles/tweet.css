@@ -1,0 +1,40 @@
+article.tweet {
+  border: solid 5px #545149;
+  padding: 1em;
+  margin-bottom: 3.5rem;
+  width: 100%;
+}
+
+.tweet header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweet header > div {
+  display: flex;
+  align-items: center;
+}
+
+.tweet footer {
+  border-top: solid 5px #545149;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5em;
+}
+
+.tweet footer p {
+  margin: 0;
+}
+
+/* Hover states */
+
+article.tweet:hover {
+  box-shadow: 8px 7px 0px -2px rgba(0,0,0,0.36);
+}
+
+.fa-flag:hover,
+.fa-retweet:hover,
+.fa-heart:hover {
+  color: #cc8800;
+}

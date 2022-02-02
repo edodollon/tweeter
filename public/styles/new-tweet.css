@@ -1,3 +1,8 @@
+section.new-tweet {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
 .new-tweet div{
   display: flex;
   justify-content: space-between;
