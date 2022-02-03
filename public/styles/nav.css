@@ -6,6 +6,9 @@ nav {
   align-items: center;
   height: 120px;;
   padding: 0 1.5em;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 nav div {
