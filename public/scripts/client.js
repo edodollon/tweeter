@@ -4,27 +4,14 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-  // Test / driver code (temporary). Eventually will get this from the server.
-  const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-    "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-    "created_at": 1461116232227
-  }
 
   const renderTweets = function(tweets) {
-    for (const tweet in tweets) {
-      console.log(tweet);
-    }
-    // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
-    $('#tweets-container').prepend(createTweetElement(tweetData));
+    const twContainer = $('#tweets-container');
+    $.each(tweets, (key) => {
+      twContainer.prepend(createTweetElement(arr[key]));
+    });
+
+    return twContainer;
   }
 
   const createTweetElement = (tweet) => {
@@ -53,20 +40,42 @@ $(document).ready(function() {
     return newTweet;
   }
 
-  renderTweets(tweetData);
-
   // Form Submission
   const $form = $('#tweet-form');
 
   $form.submit(function (event) {
     event.preventDefault();
 
+    const newTweet = event.target[0].value;
+    if (newTweet.length > 140) {
+      alert("Your message is too long!");
+      return;
+    }
+
+    if (!newTweet || null) {
+      alert("Please type to start a tweet!");
+      return;
+    }
+
     $.ajax({
       method: "POST",
       url: "http://localhost:8080/tweets",
       data: $(this).serialize()
-    // }).then(function () {
-    //   loadTweets();
+    }).then(function () {
+      loadTweets();
     });
   })
+
+  // Fetch tweets with AJAX
+  const loadTweets = function () {
+    $.ajax({
+      method: "GET",
+      url: "http://localhost:8080/tweets",
+    }).then(function (tweet) {
+      renderTweets(tweet);
+      //resets the form
+      document.querySelector(".textarea").reset();
+    });
+  };
+  loadTweets();
 }); 
