@@ -17,21 +17,31 @@ $(document).ready(function() {
     "created_at": 1461116232227
   }
 
-  const createTweetElement = (data) => {
-    const newTweet = `
+  const renderTweets = function(tweets) {
+    for (const tweet in tweets) {
+      console.log(tweet);
+    }
+    // loops through tweets
+    // calls createTweetElement for each tweet
+    // takes return value and appends it to the tweets container
+    $('#tweets-container').prepend(createTweetElement(tweetData));
+  }
+
+  const createTweetElement = (tweet) => {
+    let newTweet = `
     <article class="tweet">
       <header>
         <div>
           <i class="fas fa-user-circle"></i>
-          <p>${data.user.name}</p>
+          <p>${tweet.user.name}</p>
         </div>
         <div>
-          <p>${data.user.handle}</p>
+          <p>${tweet.user.handle}</p>
         </div>
       </header>
-        <p>${data.content.text}</p>
+        <p>${tweet.content.text}</p>
       <footer>
-        <p>${data.created_at}</p>
+        <p>${timeago.format(tweet.created_at)}</p>
         <div>
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
@@ -43,9 +53,12 @@ $(document).ready(function() {
     return newTweet;
   }
 
-  const $tweet = createTweetElement(tweetData);
+  renderTweets(tweetData);
 
-  // Test / driver code (temporary)
-  console.log($tweet); // to see what it looks like
-  $('#tweets-container').prepend($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  // Form Submission
+  const $form = $('#tweet-text');
+
+  $form.submit(function (event) {
+    event.preventDefault();
+  })
 }); 
