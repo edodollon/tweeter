@@ -5,10 +5,16 @@
  */
 $(document).ready(function() {
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const renderTweets = function(tweets) {
     const twContainer = $('#tweets-container');
     $.each(tweets, (key) => {
-      twContainer.prepend(createTweetElement(arr[key]));
+      twContainer.prepend(createTweetElement(tweets[key]));
     });
 
     return twContainer;
@@ -20,13 +26,13 @@ $(document).ready(function() {
       <header>
         <div>
           <i class="fas fa-user-circle"></i>
-          <p>${tweet.user.name}</p>
+          <p>${escape(tweet.user.name)}</p>
         </div>
         <div>
-          <p>${tweet.user.handle}</p>
+          <p>${escape(tweet.user.handle)}</p>
         </div>
       </header>
-        <p>${tweet.content.text}</p>
+        <p>${escape(tweet.content.text)}</p>
       <footer>
         <p>${timeago.format(tweet.created_at)}</p>
         <div>
@@ -41,7 +47,7 @@ $(document).ready(function() {
   }
 
   // Form Submission
-  const $form = $('#tweet-form');
+  const $form = $("#tweet-form");
 
   $form.submit(function (event) {
     event.preventDefault();
@@ -73,8 +79,7 @@ $(document).ready(function() {
       url: "http://localhost:8080/tweets",
     }).then(function (tweet) {
       renderTweets(tweet);
-      //resets the form
-      document.querySelector(".textarea").reset();
+      document.querySelector("#tweet-form").reset();
     });
   };
   loadTweets();
