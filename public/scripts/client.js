@@ -52,14 +52,18 @@ $(document).ready(function() {
   $form.submit(function (event) {
     event.preventDefault();
 
+    $(".error-handler").slideUp();
+    $("#char-error").slideUp();
+    $("#empty-error").slideUp();
+
     const newTweet = event.target[0].value;
     if (newTweet.length > 140) {
-      alert("Your message is too long!");
+      $("#char-error").slideDown();
       return;
     }
 
     if (!newTweet || null) {
-      alert("Please type to start a tweet!");
+      $("#empty-error").slideDown();
       return;
     }
 

@@ -29,6 +29,11 @@ body {
   margin: 0 5%;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+/* container error handler */
+.error-handler {
+  border: solid red 5px;
+  display: none;
+  margin-top: 2.5rem;
+  text-align: center;
+  width: 100%;
+}
