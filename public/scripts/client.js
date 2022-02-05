@@ -56,9 +56,17 @@ $(document).ready(function() {
   renderTweets(tweetData);
 
   // Form Submission
-  const $form = $('#tweet-text');
+  const $form = $('#tweet-form');
 
   $form.submit(function (event) {
     event.preventDefault();
+
+    $.ajax({
+      method: "POST",
+      url: "http://localhost:8080/tweets",
+      data: $(this).serialize()
+    // }).then(function () {
+    //   loadTweets();
+    });
   })
 }); 
