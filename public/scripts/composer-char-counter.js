@@ -6,7 +6,7 @@ $(document).ready(function() {
   // });
 
   $("#tweet-text").on('input', function(event) {
-    let value = $( this ).val();
+    let value = $(this).val();
     let count = 140 - value.length;
     let countNum = event.target.form.counter.innerText;
 

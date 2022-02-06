@@ -18,7 +18,7 @@ $(document).ready(function() {
     });
 
     return twContainer;
-  }
+  };
 
   const createTweetElement = (tweet) => {
     let newTweet = `
@@ -44,7 +44,7 @@ $(document).ready(function() {
     </article>`;
 
     return newTweet;
-  }
+  };
 
   // Form Submission
   const $form = $("#tweet-form");
@@ -74,7 +74,7 @@ $(document).ready(function() {
     }).then(function () {
       loadTweets();
     });
-  })
+  });
 
   // Fetch tweets with AJAX
   const loadTweets = function () {
@@ -87,4 +87,4 @@ $(document).ready(function() {
     });
   };
   loadTweets();
-}); 
+});
