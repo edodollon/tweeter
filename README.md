@@ -6,9 +6,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
-!["Desktop View"] (https://github.com/edodollon/tweeter/blob/master/docs/desktop-view.png?raw=true)
-!["Desktop with error"] (https://github.com/edodollon/tweeter/blob/master/docs/desktop-view-error.png?raw=true)
-!["Mobile/Tablet View"] (https://github.com/edodollon/tweeter/blob/master/docs/tablet-mobile-view.png?raw=true)
+!["Desktop View"](https://github.com/edodollon/tweeter/blob/master/docs/desktop-view.png?raw=true)
+!["Desktop with error"](https://github.com/edodollon/tweeter/blob/master/docs/desktop-view-error.png?raw=true)
+!["Mobile/Tablet View"](https://github.com/edodollon/tweeter/blob/master/docs/tablet-mobile-view.png?raw=true)
 
 ## Getting Started
 
