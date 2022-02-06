@@ -17,10 +17,18 @@ nav div {
   align-items: center;
 }
 
+nav p {
+  margin-bottom: 0;
+}
+
 nav span {
   font-family: 'Bungee', cursive;
 }
 
 #nav-span {
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.fa-angle-double-down {
+  color: red;
 }
