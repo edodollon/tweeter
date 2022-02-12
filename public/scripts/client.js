@@ -17,10 +17,10 @@ $(document).ready(function() {
       <header>
         <div>
           <i class="fas fa-user-circle"></i>
-          <p>${escape(tweet.user.name)}</p>
+          <p>${tweet.user.name}</p>
         </div>
         <div>
-          <p>${escape(tweet.user.handle)}</p>
+          <p>${tweet.user.handle}</p>
         </div>
       </header>
       <main>
@@ -46,7 +46,7 @@ $(document).ready(function() {
   };
 
   const renderTweets = function(tweets) {
-    const twContainer = $('#tweets-container');
+    const twContainer = $(".tweets-container");
     $.each(tweets, (key) => {
       twContainer.prepend(createTweetElement(tweets[key]));
     });
@@ -90,6 +90,7 @@ $(document).ready(function() {
       method: "GET",
       url: "http://localhost:8080/tweets",
     }).then(function (tweet) {
+      $(".tweets-container").empty();
       renderTweets(tweet);
       document.querySelector("#tweet-form").reset();
     });
