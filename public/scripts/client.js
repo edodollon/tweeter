@@ -11,15 +11,6 @@ $(document).ready(function() {
     return div.innerHTML;
   };
 
-  const renderTweets = function(tweets) {
-    const twContainer = $('#tweets-container');
-    $.each(tweets, (key) => {
-      twContainer.prepend(createTweetElement(tweets[key]));
-    });
-
-    return twContainer;
-  };
-
   const createTweetElement = (tweet) => {
     let newTweet = `
     <article class="tweet">
@@ -44,6 +35,15 @@ $(document).ready(function() {
     </article>`;
 
     return newTweet;
+  };
+
+  const renderTweets = function(tweets) {
+    const twContainer = $('#tweets-container');
+    $.each(tweets, (key) => {
+      twContainer.prepend(createTweetElement(tweets[key]));
+    });
+
+    return twContainer;
   };
 
   // Form Submission
