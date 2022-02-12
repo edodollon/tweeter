@@ -23,7 +23,15 @@ $(document).ready(function() {
           <p>${escape(tweet.user.handle)}</p>
         </div>
       </header>
-        <p>${escape(tweet.content.text)}</p>
+      <main>
+        <p>
+          ${escape(
+              tweet.content.text.length > 40 ? tweet.content.text.slice(0, 40) + "\n" + 
+              tweet.content.text.slice(40, tweet.content.text.length) 
+              : tweet.content.text
+          )}
+        </p>
+      </main>
       <footer>
         <p>${timeago.format(tweet.created_at)}</p>
         <div>
